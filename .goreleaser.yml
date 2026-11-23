@@ -47,7 +47,7 @@ brews:
     directory: Formula
     homepage: "https://github.com/lokalise/lokalise-cli-2-go"
     description: "Lokalise CLI v2"
-    skip_upload: false
+    skip_upload: true
     name: lokalise2
     install: |
       bin.install "lokalise2"
@@ -60,52 +60,52 @@ changelog:
 
 dockers:
   - image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-amd64"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-amd64"
     goarch: amd64
     dockerfile: Dockerfile.goreleaser
     build_flag_templates:
       - "--platform=linux/amd64"
   - image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-arm64v8"
     goarch: arm64
     dockerfile: Dockerfile.goreleaser
     build_flag_templates:
       - "--platform=linux/arm64/v8"
   - image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-riscv64"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-riscv64"
     goarch: riscv64
     dockerfile: Dockerfile.goreleaser
     build_flag_templates:
       - "--platform=linux/riscv64"
 docker_manifests:
-  - name_template: "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}"
+  - name_template: "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}"
     image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
-  - name_template: "docker.io/lokalise/lokalise-cli-2:latest"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-amd64"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-riscv64"
+  - name_template: "docker.io/stalwarttestriscv64/lokalise-cli-2:latest"
     image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
-  - name_template: "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-amd64"
+      - "docker.io/stalwarttestriscv64/lokalise-cli-2:{{ .Tag }}-riscv64"
+  - name_template: "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}"
     image_templates:
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
-  - name_template: "ghcr.io/lokalise/lokalise-cli-2:latest"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-amd64"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-riscv64"
+  - name_template: "ghcr.io/eshattow/lokalise-lokalise-cli-2:latest"
     image_templates:
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-riscv64"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-arm64v8"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-amd64"
+      - "ghcr.io/eshattow/lokalise-lokalise-cli-2:{{ .Tag }}-riscv64"
 
 release:
   github:
-    owner: lokalise
-    name: lokalise-cli-2-go
+    owner: eshattow
+    name: lokalise-lokalise-cli-2-go
   draft: true
   replace_existing_draft: true
   replace_existing_artifacts: true

@@ -51,38 +51,16 @@ checksum:
 changelog:
   sort: asc
 
-dockers:
-  - image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-    goarch: amd64
-    dockerfile: Dockerfile.goreleaser
-    build_flag_templates:
-      - "--platform=linux/amd64"
-  - image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-    goarch: arm64
-    dockerfile: Dockerfile.goreleaser
-    build_flag_templates:
-      - "--platform=linux/arm64/v8"
-docker_manifests:
-  - name_template: "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}"
-    image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-  - name_template: "docker.io/lokalise/lokalise-cli-2:latest"
-    image_templates:
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "docker.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-  - name_template: "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}"
-    image_templates:
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
-  - name_template: "ghcr.io/lokalise/lokalise-cli-2:latest"
-    image_templates:
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-arm64v8"
-      - "ghcr.io/lokalise/lokalise-cli-2:{{ .Tag }}-amd64"
+dockers_v2:
+  - dockerfile: Dockerfile.goreleaser
+  - images:
+      - lokalise/lokalise-cli-2
+      - ghcr.io/lokalise/lokalise-cli-2
+    extra_files:
+      - /etc/ssl/certs/
+  - platforms:
+      - linux/amd64
+      - linux/arm64/v8
 
 release:
   github:
